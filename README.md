@@ -1,3 +1,18 @@
+#### Sign-Up
+
+```
+POST /api/authentication/sign-up HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+Content-Length: 72
+
+{
+  "username": "user",
+  "password": "user",
+  "name": "user1"
+} 
+```
+
 #### Sign-In
 
 ```
@@ -12,25 +27,11 @@ Content-Length: 50
 } 
 ```
 
-#### Sign-Up
-
-```
-POST /api/authentication/sign-up HTTP/1.1
-Host: localhost:8080
-Content-Type: application/json
-Content-Length: 72
-
-{
-  "username": "user1",
-  "password": "user1",
-  "name": "user1"
-} 
-```
 
 #### Make-admin
 
 ```
-PUT /api/internal/make-admin/user HTTP/1.1
+PUT /api/internal/make-admin/admin HTTP/1.1
 Host: localhost:8080
 Authorization: Bearer InternalApiKey1234!
 ```

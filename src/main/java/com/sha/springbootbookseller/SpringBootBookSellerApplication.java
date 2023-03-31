@@ -16,31 +16,9 @@ import java.time.LocalDateTime;
 @PropertySource("classpath:application-${spring.profiles.active:default}.properties")
 public class SpringBootBookSellerApplication {
 
-    private IUserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
-
-    public SpringBootBookSellerApplication(IUserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(SpringBootBookSellerApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner commandLineRunner(){
-        return args -> {
-            User user = new User();
-            user.setUsername("root");
-            user.setPassword(passwordEncoder.encode("root"));
-            user.setName("Alish Shrestha");
-            user.setRole(Role.ADMIN);
-            user.setCreateTime(LocalDateTime.now());
-
-            userRepository.save(user);
-
-        };
-    }
 
 }
